@@ -1,0 +1,39 @@
+body {
+	background-color: #fadde1;
+}
+.container{
+    display: flex;
+    flex-wrap:nowrap;
+}
+
+.textForm {
+    height: 250px;
+    width: 100%;
+    font-size: 18px;
+    margin: 5px;
+
+}
+
+.textTo {
+    height: 250px;
+    width: 100%;
+    font-size: 18px;
+    margin:5px;
+}
+
+.button {
+	background-color: #e67cab;
+	color: aliceblue;
+	border: #fadde1;
+    border-radius: 10px;
+}
+.select{
+    background-color: #e67cab;
+	color: aliceblue;
+	border: #fadde1;
+    border-radius: 10px;   
+}
+.button:hover,.select:hover {
+    background-color: #f4b1ba;
+    color: #e24d90;
+  }
