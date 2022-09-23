@@ -1,3 +1,5 @@
+import { PIRATE, MINION } from "./constants.js";
+
 async function fetchData(url) {
 	const response = await fetch(url);
 	if (response.ok) {
@@ -16,15 +18,10 @@ async function fetchAndTranslate(text, targetLanguage) {
 	return data;
 }
 
-async function minionsTranslate(text, targetLanguage) {
-	const data = await fetchData(``);
-
-	console.log(data);
-	return data;
-}
-
-async function piratesTranslate(text, targetLanguage) {
-	const data = await fetchData(``);
+async function funnyTranslate(text, targetLanguage) {
+	const data = await fetchData(
+		`https://api.funtranslations.com/translate/${targetLanguage}.json?text=${text}`
+	);
 
 	console.log(data);
 	return data;
@@ -51,9 +48,9 @@ function main() {
 
 		if (textForm.value) {
 			try {
-				if (targetLanguage == "minions" || targetLanguage == "pairts") {
-					const translation = await minionsTranslate(text, targetLanguage);
-					textTo.value = translation.responseData.translatedText;
+				if (targetLanguage == MINION || targetLanguage == PIRATE) {
+					const translation = await funnyTranslate(text, targetLanguage);
+					textTo.value = translation.contents.translated;
 				} else {
 					const translation = await fetchAndTranslate(text, targetLanguage);
 					textTo.value = translation.responseData.translatedText;
@@ -67,16 +64,15 @@ function main() {
 	});
 	select.addEventListener("change", async (e) => {
 		//    textTo =e.target.value
-		if (e.target.value == "minions") {
-			document.body.classList.add("minions-mode");
-            document.body.classList.remove("pirates-mode")
-		}else if ((e.target.value == "pirates")) {
-            document.body.classList.add("pirates-mode");
-            document.body.classList.remove("minions-mode")
-        }else{
-            document.body.classList.remove("minions-mode","pirates-mode")
-        }
-        
+		if (e.target.value == MINION) {
+			document.body.classList.add("minion-mode");
+			document.body.classList.remove("pirate-mode");
+		} else if (e.target.value == PIRATE) {
+			document.body.classList.add("pirate-mode");
+			document.body.classList.remove("minion-mode");
+		} else {
+			document.body.classList.remove("minion-mode", "pirate-mode");
+		}
 	});
 }
 
