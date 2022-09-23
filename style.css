@@ -1,39 +1,68 @@
 body {
 	background-color: #fadde1;
 }
-.container{
-    display: flex;
-    flex-wrap:nowrap;
+
+main {
+	height: 90vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	display: flex;
+    width: 80vw;
 }
 
 .textForm {
-    height: 250px;
-    width: 100%;
-    font-size: 18px;
-    margin: 5px;
-
+	height: 250px;
+	width: 100%;
+	font-size: 18px;
+	margin: 5px;
 }
 
 .textTo {
-    height: 250px;
-    width: 100%;
-    font-size: 18px;
-    margin:5px;
+	height: 250px;
+	width: 100%;
+	font-size: 18px;
+	margin: 5px;
 }
 
-.button {
+.button ,.select{
 	background-color: #e67cab;
 	color: aliceblue;
 	border: #fadde1;
-    border-radius: 10px;
+	border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    font-size: medium;
 }
-.select{
-    background-color: #e67cab;
+/* .select {
+	background-color: #e67cab;
 	color: aliceblue;
 	border: #fadde1;
-    border-radius: 10px;   
+	border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    font-size: medium;
+} */
+.button:hover,
+.select:hover {
+	background-color: #f4b1ba;
+	color: #e24d90;
 }
-.button:hover,.select:hover {
-    background-color: #f4b1ba;
-    color: #e24d90;
-  }
+
+.minions-mode {
+	background-color: rgb(240, 232, 115);
+	/* color: aliceblue; */
+}
+.pirates-mode {
+	background-color: rgb(0, 0, 0);
+}
+
+
+@media screen and (max-width: 680px) {
+	.container {
+		flex-direction: column;
+	}
+}

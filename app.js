@@ -23,9 +23,16 @@ async function minionsTranslate(text, targetLanguage) {
 	return data;
 }
 
+async function piratesTranslate(text, targetLanguage) {
+	const data = await fetchData(``);
+
+	console.log(data);
+	return data;
+}
+
 function renderError(error) {
 	// const h1 = document.createElement("h1");
-    const errorDiv = document.querySelector("#error");
+	const errorDiv = document.querySelector("#error");
 	errorDiv.textContent = error;
 	// document.body.appendChild(h1);
 
@@ -33,6 +40,7 @@ function renderError(error) {
 }
 
 function main() {
+	let body = document.querySelector("body");
 	const select = document.querySelector("select");
 	const textTo = document.querySelector(".textTo");
 	const translateBtn = document.querySelector(".button");
@@ -43,27 +51,33 @@ function main() {
 
 		if (textForm.value) {
 			try {
-				const translation = await fetchAndTranslate(text, targetLanguage);
-				textTo.value = translation.responseData.translatedText;
+				if (targetLanguage == "minions" || targetLanguage == "pairts") {
+					const translation = await minionsTranslate(text, targetLanguage);
+					textTo.value = translation.responseData.translatedText;
+				} else {
+					const translation = await fetchAndTranslate(text, targetLanguage);
+					textTo.value = translation.responseData.translatedText;
+				}
 			} catch (error) {
 				renderError(error.message);
 			}
-		}else{
-            renderError("YOU HAVE TO ENTER TEXT")
-        }
-
-		// console.log(translation.responseData["translatedText"])
-		// const translation1 = await fetchAndTranslate(text,"fr");
-		// textTo.value=translation1.responseData.translatedText
-
-		// const translation2 = await fetchAndTranslate(text,"es");
-		// textTo.value=translation2.responseData.translatedText
+		} else {
+			renderError("YOU HAVE TO ENTER TEXT");
+		}
 	});
-	// button.addEventListener("change", async(e) => {
-	//    textTo =e.target.value
-	//     console.log(e.target.value)
-
-	// });
+	select.addEventListener("change", async (e) => {
+		//    textTo =e.target.value
+		if (e.target.value == "minions") {
+			document.body.classList.add("minions-mode");
+            document.body.classList.remove("pirates-mode")
+		}else if ((e.target.value == "pirates")) {
+            document.body.classList.add("pirates-mode");
+            document.body.classList.remove("minions-mode")
+        }else{
+            document.body.classList.remove("minions-mode","pirates-mode")
+        }
+        
+	});
 }
 
 window.addEventListener("load", main);
