@@ -29,7 +29,8 @@ main {
 }
 
 .button,
-.select {
+.select,
+.micro {
 	background-color: #e67cab;
 	color: aliceblue;
 	border: #fadde1;
@@ -60,11 +61,28 @@ main {
 
 .minion-mode {
 	background-color: rgb(240, 232, 115);
-	/* color: aliceblue; */
+	background-image: url(./images/minions.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
+
+textarea {
+	background: #efe2e2db;
+}
+
 .pirate-mode {
 	background-color: rgb(0, 0, 0);
 	color: rgb(249, 249, 249);
+	background-image: url(./images/pirates.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.soundicon {
+	width:40px;
+	height: 15px;
 }
 
 @media screen and (max-width: 680px) {

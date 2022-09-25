@@ -42,9 +42,11 @@ function main() {
 	const textTo = document.querySelector(".textTo");
 	const translateBtn = document.querySelector(".button");
 	const textForm = document.querySelector(".textForm");
+    const soundBtn =document.querySelector(".micro")
 	translateBtn.addEventListener("click", async () => {
 		let text = textForm.value;
 		let targetLanguage = select.value;
+        textTo.value;
 
 		if (textForm.value) {
 			try {
@@ -61,19 +63,26 @@ function main() {
 		} else {
 			renderError("YOU HAVE TO ENTER TEXT");
 		}
+
 	});
 	select.addEventListener("change", async (e) => {
 		//    textTo =e.target.value
+        document.body.classList.remove("minion-mode", "pirate-mode");
 		if (e.target.value == MINION) {
 			document.body.classList.add("minion-mode");
-			document.body.classList.remove("pirate-mode");
 		} else if (e.target.value == PIRATE) {
-			document.body.classList.add("pirate-mode");
-			document.body.classList.remove("minion-mode");
-		} else {
-			document.body.classList.remove("minion-mode", "pirate-mode");
+			document.body.classList.add("pirate-mode");	
 		}
 	});
+    // soundBtn.addEventListener("click",async(e)=>{
+      
+    //     let sound = new SpeechSynthesisUtterance(textTo.value);
+    //     sound.lang =e.target.value 
+    //     speechSynthesis.speak(sound)
+    //   });
+
+
+    
 }
 
 window.addEventListener("load", main);
