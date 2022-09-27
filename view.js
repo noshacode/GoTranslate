@@ -19,6 +19,7 @@ export const createTranslateView = () => {
             <button class="translateBtn button">Translate</button>
             <button class="micro button"><img src="./images/sound.svg" alt="sounds" class="soundicon"></button>
             <div id="extraInfoBtn"></div>
+            
         </div>
     `;
 	return container;

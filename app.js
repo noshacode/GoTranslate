@@ -32,8 +32,9 @@ function renderError(error) {
 	errorDiv.textContent = error;
 }
 
-function main() {
+export function mainHome() {
 	const main = document.querySelector("main");
+	main.innerHTML = "";
 	main.appendChild(createTranslateView());
 
 	const select = document.querySelector("select");
@@ -70,6 +71,7 @@ function main() {
 	});
 	// background - video - empty btn
     const extraInfoBtn = document.getElementById("extraInfoBtn")
+	
 	select.addEventListener("change", async (e) => {
 		document.body.classList.remove("minion-mode", "pirate-mode");
 		extraInfoBtn.innerHTML = "";
@@ -94,4 +96,4 @@ function main() {
 	});
 }
 
-window.addEventListener("load", main);
+window.addEventListener("load", mainHome);
