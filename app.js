@@ -38,7 +38,7 @@ function main() {
 
 	const select = document.querySelector("select");
 	const textTo = document.querySelector(".textTo");
-	const translateBtn = document.querySelector(".button");
+	const translateBtn = document.querySelector(".translateBtn");
 	const textForm = document.querySelector(".textForm");
 
 	textForm.addEventListener("keyup", (e) => {
@@ -48,9 +48,9 @@ function main() {
 	});
 
 	translateBtn.addEventListener("click", async () => {
-		let text = textForm.value;
-		let targetLanguage = select.value;
-		textTo.value;
+		const text = textForm.value;
+		const targetLanguage = select.value;
+        renderError("")
 
 		if (textForm.value) {
 			try {
@@ -69,18 +69,18 @@ function main() {
 		}
 	});
 	// background - video - empty btn
-    const extraInfoBtn = document.getElementById("extraInfoBtn ")
+    const extraInfoBtn = document.getElementById("extraInfoBtn")
 	select.addEventListener("change", async (e) => {
 		document.body.classList.remove("minion-mode", "pirate-mode");
-		extraInfoBtn .innerHTML = "";
+		extraInfoBtn.innerHTML = "";
 
 		if (e.target.value == MINION) {
 			document.body.classList.add("minion-mode");
-			extraInfoBtn .appendChild(createNavigateButton(MINIONVIDEO));
+			extraInfoBtn.appendChild(createNavigateButton(MINIONVIDEO));
 			addNavButton();
 		} else if (e.target.value == PIRATE) {
 			document.body.classList.add("pirate-mode");
-			extraInfoBtn .appendChild(createNavigateButton(PIRATEVIDEO));
+			extraInfoBtn.appendChild(createNavigateButton(PIRATEVIDEO));
 			addNavButton();
 		}
 	});
