@@ -2,12 +2,12 @@ export const createTranslateView = () => {
 	const container = document.createElement("div");
 
 	container.innerHTML = String.raw`
-    <h1>GoTranslate<h1/>
-        <div id="error"></div>
+    <h1 id="h1">GoTranslate<h1/>
+    <div id="error"></div>
         <div class="container">
-      
-            <textarea class="textForm" placeholder=" Enter text" maxlength="450"></textarea>
-            <textarea class="textTo" placeholder=" Translation" disabled></textarea>
+       
+            <textarea class="textForm text" placeholder=" Enter text" maxlength="450"></textarea>
+            <textarea class="textTo text" placeholder=" Translation" disabled></textarea>
         </div>
         <div class="button-container">
             <select class="select">
@@ -19,7 +19,7 @@ export const createTranslateView = () => {
             </select>
             <button class="button">Translate</button>
             <button class="micro"><img src="./images/sound.svg" alt="sounds" class="soundicon"></button>
-            <div id="tryb"></div>
+            <div id="extraInfoBtn "></div>
         </div>
        
     `;

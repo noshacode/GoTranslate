@@ -1,6 +1,6 @@
-import { PIRATE, MINION, EXTRA_PAGE_ID } from "./constants.js";
+import { PIRATE, MINION, MINIONVIDEO,PIRATEVIDEO } from "./constants.js";
 import { createTranslateView } from "./view.js";
-import { createNavigateButton, addNavButton } from "./minions.js";
+import { createNavigateButton, addNavButton } from "./videos.js";
 
 async function fetchData(url) {
 	const response = await fetch(url);
@@ -68,22 +68,24 @@ function main() {
 			renderError("YOU HAVE TO ENTER TEXT");
 		}
 	});
-    const tryb = document.getElementById("tryb")
+	// background - video - empty btn
+    const extraInfoBtn = document.getElementById("extraInfoBtn ")
 	select.addEventListener("change", async (e) => {
 		document.body.classList.remove("minion-mode", "pirate-mode");
-		tryb.innerHTML = "";
+		extraInfoBtn .innerHTML = "";
 
 		if (e.target.value == MINION) {
 			document.body.classList.add("minion-mode");
-			tryb.appendChild(createNavigateButton("DLeBwgYXWgk"));
+			extraInfoBtn .appendChild(createNavigateButton(MINIONVIDEO));
 			addNavButton();
 		} else if (e.target.value == PIRATE) {
 			document.body.classList.add("pirate-mode");
-			tryb.appendChild(createNavigateButton("knP4V8cY7W4"));
+			extraInfoBtn .appendChild(createNavigateButton(PIRATEVIDEO));
 			addNavButton();
 		}
 	});
 
+   //sound
 	const soundBtn = document.querySelector(".micro");
 	soundBtn.addEventListener("click", (e) => {
 		let sound = new SpeechSynthesisUtterance(textTo.value);

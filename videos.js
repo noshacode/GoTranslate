@@ -1,7 +1,5 @@
-import { EXTRA_PAGE_ID } from "./constants.js";
+import { EXTRA_PAGE_ID} from "./constants.js";
 
-// DLeBwgYXWgk
-// knP4V8cY7W4
 
 export const createVideoElement = (videoId) => {
 	const videoElement = document.createElement("div");
@@ -33,7 +31,7 @@ export function addNavButton() {
 		newPageForVideo(videoId);
 	});
 }
-
+//function empty the page and append video to main
 export function newPageForVideo(videoId) {
 	const main = document.querySelector("main");
 	main.innerHTML = "";
