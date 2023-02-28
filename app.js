@@ -91,7 +91,7 @@ export function mainHome() {
 	const soundBtn = document.querySelector(".micro");
 	soundBtn.addEventListener("click", (e) => {
 		let sound = new SpeechSynthesisUtterance(textTo.value);
-		sound.lang = e.target.value;
+	   	sound.lang = select.value
 		speechSynthesis.speak(sound);
 	});
 }
